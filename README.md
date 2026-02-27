@@ -1,61 +1,131 @@
 # CodeB .NET Technical Assessment
 
-## Overview
-This repository contains the backend API implementation for the CodeB .NET Technical Assessment. The application handles two primary user flows as per the provided wireframes:
-1. **Registration - New Customer:** Complete onboarding flow including mock OTP verification.
+## 📌 Overview
+This repository contains the backend API implementation for the **CodeB .NET Technical Assessment**. The application handles two primary user flows as per the provided wireframes:
+
+1. **Registration – New Customer:** Complete onboarding flow including mock OTP verification.
 2. **Migrate Existing User:** Flow to migrate an existing legacy user to the new system.
 
-[cite_start]As per the assignment instructions, this project does not implement authentication [cite: 3] [cite_start]and relies on a mock function for OTP generation and validation without any 3rd-party integrations[cite: 6].
+This project does **not** implement authentication and relies on a mock function for OTP generation and validation without any third-party integrations, fulfilling all assignment constraints.
 
-## Architectural Design & Patterns
-[cite_start]The application is built with a strong focus on Code Quality, Reusability, and standard coding practices. 
-* **Clean Architecture:** The solution is logically separated into Core (Entities, DTOs, Interfaces), Infrastructure (Data Access, EF Core), Services (Business Logic), and API (Controllers, Middleware) layers.
-* **SOLID Principles:** Interfaces are used heavily to ensure loosely coupled code, adhering to the Dependency Inversion and Single Responsibility principles.
-* **Dependency Injection (DI):** All repositories and services (`IUserRepository`, `IOtpService`, `IUserService`) are registered via the built-in ASP.NET Core DI container.
-* **Global Exception Handling:** A custom middleware (`ExceptionMiddleware`) is implemented to catch and format exceptions globally, ensuring clean controller logic and standard API error responses.
+---
 
-## Technologies Used
-* **Framework:** .NET 8.0 (Web API)
-* **Database:** Microsoft SQL Server
-* [cite_start]**ORM:** Entity Framework Core (Code-First Migrations) [cite: 4]
-* **API Documentation:** Swagger / OpenAPI
+## 🏗 Architectural Design & Patterns
+The application is built with a strong focus on **Code Quality, Reusability, and Standard Coding Practices**.
 
-## Features Implemented
-* [cite_start]Complete flow coverage for both New User Registration and Existing User Migration[cite: 5].
-* [cite_start]Entity Framework Core integration for seamless DB handling[cite: 4].
-* [cite_start]Custom Mock OTP Service that generates, stores, and validates OTPs with expiration logic[cite: 6].
-* Global Exception Handling for robust API responses.
+### ✔ Clean Architecture
+The solution is logically separated into layers:
 
-## Getting Started
+- **Core** → Entities, DTOs, Interfaces  
+- **Infrastructure** → Data Access, Entity Framework Core  
+- **Services** → Business Logic  
+- **API** → Controllers, Middleware  
 
-### Prerequisites
-* Visual Studio 2022 (or later) / VS Code
-* .NET 8.0 SDK
-* Microsoft SQL Server (LocalDB or SQLEXPRESS)
+### ✔ SOLID Principles
+- Interfaces are used extensively to ensure loosely coupled code.
+- Follows **Dependency Inversion Principle (DIP)** and **Single Responsibility Principle (SRP)**.
 
-### Database Setup (Entity Framework Migrations)
-1. Clone the repository to your local machine.
-2. Open `appsettings.json` and verify the `DefaultConnection` string matches your local SQL Server instance.
-3. Open the **Package Manager Console** in Visual Studio.
-4. Run the following command to apply the migrations and create the database:
+### ✔ Dependency Injection (DI)
+All repositories and services are registered using the built-in ASP.NET Core DI container:
+- `IUserRepository`
+- `IOtpService`
+- `IUserService`
+
+### ✔ Global Exception Handling
+A custom middleware (`ExceptionMiddleware`) is implemented to:
+- Catch exceptions globally
+- Format standardized API error responses
+- Keep controller logic clean
+
+---
+
+## 🛠 Technologies Used
+- **Framework:** .NET 8.0 (Web API)
+- **Database:** Microsoft SQL Server
+- **ORM:** Entity Framework Core (Code-First Migrations)
+- **API Documentation:** Swagger / OpenAPI
+
+---
+
+## 🚀 Getting Started
+
+### 🔹 Prerequisites
+- Visual Studio 2022 (or later) / VS Code
+- .NET 8.0 SDK
+- Microsoft SQL Server (LocalDB or SQLEXPRESS)
+
+---
+
+## 🗄 Database Setup
+
+1. Clone the repository:
+   ```bash
+   git clone <your-repository-url>
+   ```
+
+2. Open `appsettings.json` and verify the `DefaultConnection` string:
+
+   ```json
+   "ConnectionStrings": {
+     "DefaultConnection": "Server=localhost\\SQLEXPRESS;Database=CodeTechAssignmentDB;Trusted_Connection=True;TrustServerCertificate=True;"
+   }
+   ```
+
+3. Open **Package Manager Console** in Visual Studio.
+
+4. Run the following command to apply migrations and create the database:
+
    ```powershell
    Update-Database
+   ```
 
+---
 
-Running the Application
-Set the API project as the Startup Project.
+## ▶ Running the Application
 
-Press F5 or click Run.
+1. Set the **API project** as the Startup Project.
+2. Press **F5** or click **Run**.
+3. The application will launch and automatically open Swagger UI:
 
-The application will launch, and your default browser will automatically open the Swagger UI (https://localhost:<port>/swagger).
+   ```
+   https://localhost:<port>/swagger
+   ```
 
-API Documentation (Swagger)
-All necessary APIs are exposed and can be tested directly via the Swagger UI:
+---
 
-POST /api/Otp/send: Generates a mock OTP and saves it to the database.
+## 📖 API Documentation (Swagger)
 
-POST /api/Otp/verify: Validates the generated OTP against the database and checks for expiration.
+All APIs can be tested directly via Swagger UI.
 
-POST /api/User/register: Registers a new user (requires prior OTP verification in a real-world frontend flow).
+### 🔐 OTP Endpoints
+- **POST** `/api/Otp/send`  
+  - Generates a mock 4-digit OTP  
+  - Saves it to the database  
+  - OTP expires in 5 minutes  
 
-POST /api/User/migrate: Migrates an existing legacy user.
+- **POST** `/api/Otp/verify`  
+  - Validates OTP  
+  - Checks expiration  
+
+### 👤 User Endpoints
+- **POST** `/api/User/register`  
+  - Registers a new user  
+
+- **POST** `/api/User/migrate`  
+  - Migrates an existing legacy user into the new system  
+
+---
+
+## ✅ Assignment Constraints Covered
+- No authentication implemented  
+- Mock OTP service (no 3rd-party integration)  
+- Clean Architecture  
+- SOLID principles  
+- Dependency Injection  
+- Global Exception Handling  
+- Swagger documentation  
+
+---
+
+## 👨‍💻 Author
+Developed as part of the CodeB .NET Technical Assessment.
