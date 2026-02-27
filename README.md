@@ -109,19 +109,26 @@ The OTP service is abstracted via `IOtpService` to allow future extensibility (e
 
 ## 🗄 Database Setup
 
-Update your `appsettings.json`:
+1. Clone the repository:
+   ```bash
+   git clone <your-repository-url>
+   ```
 
-```json
-"ConnectionStrings": {
-  "DefaultConnection": "Server=localhost\\SQLEXPRESS;Database=CodeTechAssignmentDB;Trusted_Connection=True;TrustServerCertificate=True;"
-}
-```
+2. Open `appsettings.json` and verify the `DefaultConnection` string:
 
-Apply migrations:
+   ```json
+   "ConnectionStrings": {
+     "DefaultConnection": "Server=localhost\\SQLEXPRESS;Database=CodeTechAssignmentDB;Trusted_Connection=True;TrustServerCertificate=True;"
+   }
+   ```
 
-```powershell
-Update-Database
-```
+3. Open **Package Manager Console** in Visual Studio.
+
+4. Run the following command to apply migrations and create the database:
+
+   ```powershell
+   Update-Database
+   ```
 
 ---
 
