@@ -1,131 +1,193 @@
 # CodeB .NET Technical Assessment
 
-## 📌 Overview
-This repository contains the backend API implementation for the **CodeB .NET Technical Assessment**. The application handles two primary user flows as per the provided wireframes:
+## 📌 Project Summary
 
-1. **Registration – New Customer:** Complete onboarding flow including mock OTP verification.
-2. **Migrate Existing User:** Flow to migrate an existing legacy user to the new system.
+This repository contains a production-grade backend API built using **.NET 8 Web API**, implementing the required flows for the CodeB Technical Assessment.
 
-This project does **not** implement authentication and relies on a mock function for OTP generation and validation without any third-party integrations, fulfilling all assignment constraints.
+The system supports:
 
----
+1. **New Customer Registration** – Complete onboarding flow with mock OTP verification.
+2. **Legacy User Migration** – Migration flow for existing users into the new platform.
 
-## 🏗 Architectural Design & Patterns
-The application is built with a strong focus on **Code Quality, Reusability, and Standard Coding Practices**.
-
-### ✔ Clean Architecture
-The solution is logically separated into layers:
-
-- **Core** → Entities, DTOs, Interfaces  
-- **Infrastructure** → Data Access, Entity Framework Core  
-- **Services** → Business Logic  
-- **API** → Controllers, Middleware  
-
-### ✔ SOLID Principles
-- Interfaces are used extensively to ensure loosely coupled code.
-- Follows **Dependency Inversion Principle (DIP)** and **Single Responsibility Principle (SRP)**.
-
-### ✔ Dependency Injection (DI)
-All repositories and services are registered using the built-in ASP.NET Core DI container:
-- `IUserRepository`
-- `IOtpService`
-- `IUserService`
-
-### ✔ Global Exception Handling
-A custom middleware (`ExceptionMiddleware`) is implemented to:
-- Catch exceptions globally
-- Format standardized API error responses
-- Keep controller logic clean
+The implementation emphasizes clean architecture, maintainability, scalability, and adherence to enterprise-level coding standards.
 
 ---
 
-## 🛠 Technologies Used
-- **Framework:** .NET 8.0 (Web API)
-- **Database:** Microsoft SQL Server
-- **ORM:** Entity Framework Core (Code-First Migrations)
-- **API Documentation:** Swagger / OpenAPI
+## 🏛 Architecture
+
+The solution follows **Clean Architecture (Onion Architecture principles)** with clear separation of concerns:
+
+```
+CodeB.Assessment
+│
+├── Core
+│   ├── Entities
+│   ├── DTOs
+│   ├── Interfaces
+│
+├── Infrastructure
+│   ├── DbContext
+│   ├── Repositories
+│   ├── EF Core Configurations
+│
+├── Services
+│   ├── Business Logic
+│   ├── Domain Validations
+│
+└── API
+    ├── Controllers
+    ├── Middleware
+    ├── Dependency Injection
+```
+
+### Architectural Principles Applied
+
+- ✔ Clean Architecture
+- ✔ SOLID Principles
+- ✔ Repository Pattern
+- ✔ Service Layer Pattern
+- ✔ Dependency Injection
+- ✔ Global Exception Handling
+- ✔ Code-First EF Core Migrations
+
+The design ensures that:
+- Business logic is isolated from infrastructure concerns.
+- Controllers remain thin.
+- The system is easily testable and extensible.
 
 ---
 
-## 🚀 Getting Started
+## 🔐 OTP Design (Mock Implementation)
 
-### 🔹 Prerequisites
-- Visual Studio 2022 (or later) / VS Code
-- .NET 8.0 SDK
-- Microsoft SQL Server (LocalDB or SQLEXPRESS)
+- 4-digit OTP generated server-side.
+- Stored in database with 5-minute expiration.
+- Verification validates:
+  - OTP match
+  - Expiration status
+- No third-party integration (as per assignment constraints).
+
+The OTP service is abstracted via `IOtpService` to allow future extensibility (e.g., SMS/Email providers).
+
+---
+
+## 👤 User Flows
+
+### 1️⃣ Register New User
+- Validate request DTO
+- Verify OTP
+- Persist user entity
+- Return standardized response
+
+### 2️⃣ Migrate Existing User
+- Validate legacy user data
+- Transform to new domain model
+- Persist in new schema
+
+---
+
+## 🛠 Technology Stack
+
+| Layer | Technology |
+|-------|------------|
+| Framework | .NET 8 Web API |
+| ORM | Entity Framework Core |
+| Database | Microsoft SQL Server |
+| API Docs | Swagger / OpenAPI |
+| Pattern | Clean Architecture |
+
+---
+
+## ⚙️ Configuration
+
+### Prerequisites
+
+- .NET 8 SDK
+- Visual Studio 2022 or VS Code
+- SQL Server (LocalDB / SQLEXPRESS)
 
 ---
 
 ## 🗄 Database Setup
 
-1. Clone the repository:
-   ```bash
-   git clone <your-repository-url>
-   ```
+Update your `appsettings.json`:
 
-2. Open `appsettings.json` and verify the `DefaultConnection` string:
+```json
+"ConnectionStrings": {
+  "DefaultConnection": "Server=localhost\\SQLEXPRESS;Database=CodeTechAssignmentDB;Trusted_Connection=True;TrustServerCertificate=True;"
+}
+```
 
-   ```json
-   "ConnectionStrings": {
-     "DefaultConnection": "Server=localhost\\SQLEXPRESS;Database=CodeTechAssignmentDB;Trusted_Connection=True;TrustServerCertificate=True;"
-   }
-   ```
+Apply migrations:
 
-3. Open **Package Manager Console** in Visual Studio.
-
-4. Run the following command to apply migrations and create the database:
-
-   ```powershell
-   Update-Database
-   ```
+```powershell
+Update-Database
+```
 
 ---
 
 ## ▶ Running the Application
 
-1. Set the **API project** as the Startup Project.
-2. Press **F5** or click **Run**.
-3. The application will launch and automatically open Swagger UI:
+1. Set API as Startup Project
+2. Run the application
+3. Swagger UI will be available at:
 
-   ```
-   https://localhost:<port>/swagger
-   ```
-
----
-
-## 📖 API Documentation (Swagger)
-
-All APIs can be tested directly via Swagger UI.
-
-### 🔐 OTP Endpoints
-- **POST** `/api/Otp/send`  
-  - Generates a mock 4-digit OTP  
-  - Saves it to the database  
-  - OTP expires in 5 minutes  
-
-- **POST** `/api/Otp/verify`  
-  - Validates OTP  
-  - Checks expiration  
-
-### 👤 User Endpoints
-- **POST** `/api/User/register`  
-  - Registers a new user  
-
-- **POST** `/api/User/migrate`  
-  - Migrates an existing legacy user into the new system  
+```
+https://localhost:<port>/swagger
+```
 
 ---
 
-## ✅ Assignment Constraints Covered
-- No authentication implemented  
-- Mock OTP service (no 3rd-party integration)  
-- Clean Architecture  
-- SOLID principles  
-- Dependency Injection  
-- Global Exception Handling  
-- Swagger documentation  
+## 📖 API Endpoints
+
+### OTP
+
+| Method | Endpoint | Description |
+|--------|----------|------------|
+| POST | /api/Otp/send | Generate OTP |
+| POST | /api/Otp/verify | Verify OTP |
+
+### User
+
+| Method | Endpoint | Description |
+|--------|----------|------------|
+| POST | /api/User/register | Register new user |
+| POST | /api/User/migrate | Migrate legacy user |
+
+---
+
+## 🧠 Design Decisions
+
+- **No Authentication Layer** → Explicitly excluded as per requirements.
+- **Mock OTP Service** → Abstracted for future integration.
+- **Centralized Exception Middleware** → Ensures consistent error responses.
+- **Interface-Based Services** → Promotes testability.
+- **Thin Controllers** → Business logic fully delegated to services.
+
+---
+
+## 🚀 Scalability Considerations
+
+The current design allows easy integration of:
+
+- JWT Authentication
+- Background job processing (e.g., Hangfire)
+- Caching layer (Redis)
+- Distributed logging (Serilog + Seq)
+- Message broker (RabbitMQ / Kafka)
+- Unit & Integration Testing (xUnit / FluentAssertions)
+
+---
+
+## 📌 Assignment Constraints Fulfilled
+
+- No external OTP provider
+- No authentication implementation
+- Clean separation of layers
+- EF Core Code-First migrations
+- Swagger documentation
 
 ---
 
 ## 👨‍💻 Author
-Developed as part of the CodeB .NET Technical Assessment.
+
+Developed as part of the CodeB Technical Assessment using enterprise-level backend engineering practices.
