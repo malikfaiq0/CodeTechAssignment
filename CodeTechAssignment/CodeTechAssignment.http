@@ -1,0 +1,6 @@
+@CodeTechAssignment_HostAddress = http://localhost:5059
+
+GET {{CodeTechAssignment_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
