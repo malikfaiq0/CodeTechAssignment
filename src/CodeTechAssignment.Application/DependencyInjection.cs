@@ -6,6 +6,7 @@ public static class DependencyInjection
     {
         // Application Services
         services.AddScoped<IUserService, UserService>();
+        services.AddScoped<IOtpService, MockOtpService>();
 
         // Validation
         services.AddFluentValidationAutoValidation();

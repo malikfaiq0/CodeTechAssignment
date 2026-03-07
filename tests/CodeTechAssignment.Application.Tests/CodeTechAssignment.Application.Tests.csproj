@@ -23,7 +23,6 @@
   <ItemGroup>
     <ProjectReference Include="..\..\src\CodeTechAssignment.Application\CodeTechAssignment.Application.csproj" />
     <ProjectReference Include="..\..\src\CodeTechAssignment.Domain\CodeTechAssignment.Domain.csproj" />
-    <ProjectReference Include="..\..\src\CodeTechAssignment.Infrastructure\CodeTechAssignment.Infrastructure.SqlServer.csproj" />
   </ItemGroup>
 
 </Project>

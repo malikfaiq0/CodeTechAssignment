@@ -6,7 +6,21 @@ builder.Host.UseSerilog((context, loggerConfiguration) => loggerConfiguration
 
 // The API delegates DI registration to the respective layers
 builder.Services.AddApplicationServices();
-builder.Services.AddInfrastructureServices(builder.Configuration);
+
+// Database Provider Switchboard
+var dbProvider = builder.Configuration.GetValue<string>("DatabaseSettings:Provider");
+if (dbProvider == "SqlServer")
+{
+    builder.Services.AddSqlServerPersistence(builder.Configuration);
+}
+else if (dbProvider == "Postgres")
+{
+    builder.Services.AddPostgresPersistence(builder.Configuration);
+}
+else
+{
+    throw new InvalidOperationException($"Unsupported database provider: {dbProvider}");
+}
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();

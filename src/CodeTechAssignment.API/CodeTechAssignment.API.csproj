@@ -21,7 +21,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CodeTechAssignment.Application\CodeTechAssignment.Application.csproj" />
-    <ProjectReference Include="..\CodeTechAssignment.Infrastructure\CodeTechAssignment.Infrastructure.SqlServer.csproj" />
+    <ProjectReference Include="..\CodeTechAssignment.Persistence.Postgres\CodeTechAssignment.Persistence.Postgres.csproj" />
+    <ProjectReference Include="..\CodeTechAssignment.Persistence.SqlServer\CodeTechAssignment.Persistence.SqlServer.csproj" />
   </ItemGroup>
 
 </Project>
