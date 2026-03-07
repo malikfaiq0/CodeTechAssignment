@@ -1,6 +1,6 @@
-using CodeTechAssignment.Core.Entities;
+using CodeTechAssignment.Domain.Entities;
 
-namespace CodeTechAssignment.Core.Interfaces
+namespace CodeTechAssignment.Application.Interfaces
 {
     public interface IOtpRepository
     {

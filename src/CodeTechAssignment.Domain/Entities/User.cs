@@ -1,4 +1,4 @@
-namespace CodeTechAssignment.Core.Entities
+namespace CodeTechAssignment.Domain.Entities
 {
     public class User
     {

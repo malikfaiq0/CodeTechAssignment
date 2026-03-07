@@ -1,4 +1,4 @@
-using CodeTechAssignment.Core.Entities;
+using CodeTechAssignment.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace CodeTechAssignment.Infrastructure.Data

@@ -1,9 +1,9 @@
 using CodeTechAssignment.API.Middleware;
 using CodeTechAssignment.API.Validators;
-using CodeTechAssignment.Core.Interfaces;
+using CodeTechAssignment.Application.Interfaces;
 using CodeTechAssignment.Infrastructure.Data;
 using CodeTechAssignment.Infrastructure.Repositories;
-using CodeTechAssignment.Services;
+using CodeTechAssignment.Application.Services;
 using FluentValidation;
 using FluentValidation.AspNetCore;
 using Microsoft.EntityFrameworkCore;

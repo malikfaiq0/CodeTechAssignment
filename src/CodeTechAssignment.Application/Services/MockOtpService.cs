@@ -1,7 +1,7 @@
-using CodeTechAssignment.Core.Entities;
-using CodeTechAssignment.Core.Interfaces;
+using CodeTechAssignment.Domain.Entities;
+using CodeTechAssignment.Application.Interfaces;
 
-namespace CodeTechAssignment.Services
+namespace CodeTechAssignment.Application.Services
 {
     public class MockOtpService : IOtpService
     {

@@ -1,4 +1,4 @@
-using CodeTechAssignment.Core.DTOs;
+using CodeTechAssignment.Application.DTOs;
 using FluentValidation;
 
 namespace CodeTechAssignment.API.Validators

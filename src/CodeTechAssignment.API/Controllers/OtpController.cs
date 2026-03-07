@@ -1,5 +1,5 @@
-using CodeTechAssignment.Core.DTOs;
-using CodeTechAssignment.Core.Interfaces;
+using CodeTechAssignment.Application.DTOs;
+using CodeTechAssignment.Application.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CodeTechAssignment.API.Controllers

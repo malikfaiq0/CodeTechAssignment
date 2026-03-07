@@ -1,6 +1,6 @@
-using CodeTechAssignment.Core.DTOs;
+using CodeTechAssignment.Application.DTOs;
 
-namespace CodeTechAssignment.Core.Interfaces
+namespace CodeTechAssignment.Application.Interfaces
 {
     public interface IUserService
     {

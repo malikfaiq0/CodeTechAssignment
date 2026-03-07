@@ -1,7 +1,7 @@
-using CodeTechAssignment.Core.DTOs;
-using CodeTechAssignment.Core.Entities;
-using CodeTechAssignment.Core.Interfaces;
-using CodeTechAssignment.Services;
+using CodeTechAssignment.Application.DTOs;
+using CodeTechAssignment.Domain.Entities;
+using CodeTechAssignment.Application.Interfaces;
+using CodeTechAssignment.Application.Services;
 using FluentAssertions;
 using Moq;
 using Xunit;

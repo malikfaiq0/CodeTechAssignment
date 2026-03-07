@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
-    <ProjectReference Include="..\CodeTechAssignment.Core\CodeTechAssignment.Core.csproj" />
+    <ProjectReference Include="..\CodeTechAssignment.Domain\CodeTechAssignment.Domain.csproj" />
   </ItemGroup>
 
   <PropertyGroup>

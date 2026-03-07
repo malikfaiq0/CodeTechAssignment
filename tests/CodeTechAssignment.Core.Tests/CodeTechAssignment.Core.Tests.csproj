@@ -20,7 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\CodeTechAssignment.Core\CodeTechAssignment.Core.csproj" />
+    <ProjectReference Include="..\..\src\CodeTechAssignment.Domain\CodeTechAssignment.Domain.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,4 +1,4 @@
-﻿namespace CodeTechAssignment.Services.Tests;
+namespace CodeTechAssignment.Services.Tests;
 
 public class UnitTest1
 {

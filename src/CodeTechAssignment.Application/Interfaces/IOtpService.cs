@@ -1,4 +1,4 @@
-namespace CodeTechAssignment.Core.Interfaces
+namespace CodeTechAssignment.Application.Interfaces
 {
     public interface IOtpService
     {

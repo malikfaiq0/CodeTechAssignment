@@ -2,6 +2,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CodeTechAssignment.Core\CodeTechAssignment.Core.csproj" />
+    <ProjectReference Include="..\CodeTechAssignment.Application\CodeTechAssignment.Application.csproj" />
+    <ProjectReference Include="..\CodeTechAssignment.Domain\CodeTechAssignment.Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>

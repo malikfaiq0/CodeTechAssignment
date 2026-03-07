@@ -23,6 +23,7 @@
     <ProjectReference Include="..\CodeTechAssignment.Core\CodeTechAssignment.Core.csproj" />
     <ProjectReference Include="..\CodeTechAssignment.Services\CodeTechAssignment.Services.csproj" />
     <ProjectReference Include="..\CodeTechAssignment.Infrastructure\CodeTechAssignment.Infrastructure.csproj" />
+    <ProjectReference Include="..\CodeTechAssignment.Application\CodeTechAssignment.Application.csproj" />
   </ItemGroup>
 
 </Project>

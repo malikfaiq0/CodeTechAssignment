@@ -1,4 +1,4 @@
-using CodeTechAssignment.Core.DTOs;
+using CodeTechAssignment.Application.DTOs;
 using FluentAssertions;
 using Microsoft.AspNetCore.Mvc.Testing;
 using System.Net;

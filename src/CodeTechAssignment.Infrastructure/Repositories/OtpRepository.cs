@@ -1,5 +1,5 @@
-using CodeTechAssignment.Core.Entities;
-using CodeTechAssignment.Core.Interfaces;
+using CodeTechAssignment.Domain.Entities;
+using CodeTechAssignment.Application.Interfaces;
 using CodeTechAssignment.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 
