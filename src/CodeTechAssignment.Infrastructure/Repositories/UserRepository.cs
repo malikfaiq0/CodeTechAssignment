@@ -1,32 +1,26 @@
-using CodeTechAssignment.Domain.Entities;
-using CodeTechAssignment.Application.Interfaces;
-using CodeTechAssignment.Infrastructure.Data;
-using Microsoft.EntityFrameworkCore;
+namespace CodeTechAssignment.Repositories;
 
-namespace CodeTechAssignment.Infrastructure.Repositories
+public class UserRepository : IUserRepository
 {
-    public class UserRepository : IUserRepository
+    private readonly AppDbContext _context;
+
+    public UserRepository(AppDbContext context)
     {
-        private readonly AppDbContext _context;
+        _context = context;
+    }
 
-        public UserRepository(AppDbContext context)
-        {
-            _context = context;
-        }
+    public async Task<User?> GetUserByMobileAsync(string mobileNumber)
+    {
+        return await _context.Users.FirstOrDefaultAsync(u => u.MobileNumber == mobileNumber);
+    }
 
-        public async Task<User?> GetUserByMobileAsync(string mobileNumber)
-        {
-            return await _context.Users.FirstOrDefaultAsync(u => u.MobileNumber == mobileNumber);
-        }
+    public async Task AddUserAsync(User user)
+    {
+        await _context.Users.AddAsync(user);
+    }
 
-        public async Task AddUserAsync(User user)
-        {
-            await _context.Users.AddAsync(user);
-        }
-
-        public async Task SaveChangesAsync()
-        {
-            await _context.SaveChangesAsync();
-        }
+    public async Task SaveChangesAsync()
+    {
+        await _context.SaveChangesAsync();
     }
 }

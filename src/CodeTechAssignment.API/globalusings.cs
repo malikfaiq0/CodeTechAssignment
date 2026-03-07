@@ -1,0 +1,13 @@
+﻿global using System.Net;
+global using System.Text.Json;
+global using Microsoft.AspNetCore.Mvc;
+global using FluentValidation;
+global using FluentValidation.AspNetCore;
+global using Microsoft.EntityFrameworkCore;
+global using Serilog;
+global using CodeTechAssignment.DTO;
+global using CodeTechAssignment.Services;
+global using CodeTechAssignment.Middleware;
+global using CodeTechAssignment.Validators;
+global using CodeTechAssignment.Data;
+global using CodeTechAssignment.Repositories;

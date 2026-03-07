@@ -1,32 +1,28 @@
-using System.Net;
-using System.Text.Json;
+namespace CodeTechAssignment.Middleware;
 
-namespace CodeTechAssignment.API.Middleware
+public class ExceptionMiddleware
 {
-    public class ExceptionMiddleware
+    private readonly RequestDelegate _next;
+
+    public ExceptionMiddleware(RequestDelegate next)
     {
-        private readonly RequestDelegate _next;
+        _next = next;
+    }
 
-        public ExceptionMiddleware(RequestDelegate next)
+    public async Task InvokeAsync(HttpContext httpContext)
+    {
+        try
         {
-            _next = next;
+            await _next(httpContext);
         }
-
-        public async Task InvokeAsync(HttpContext httpContext)
+        catch (Exception ex)
         {
-            try
-            {
-                await _next(httpContext);
-            }
-            catch (Exception ex)
-            {
-                httpContext.Response.ContentType = "application/json";
-                httpContext.Response.StatusCode = (int)HttpStatusCode.BadRequest;
+            httpContext.Response.ContentType = "application/json";
+            httpContext.Response.StatusCode = (int)HttpStatusCode.BadRequest;
 
-                var response = new { message = ex.Message, details = "An error occurred during processing." };
-                var jsonResponse = JsonSerializer.Serialize(response);
-                await httpContext.Response.WriteAsync(jsonResponse);
-            }
+            var response = new { message = ex.Message, details = "An error occurred during processing." };
+            var jsonResponse = JsonSerializer.Serialize(response);
+            await httpContext.Response.WriteAsync(jsonResponse);
         }
     }
 }

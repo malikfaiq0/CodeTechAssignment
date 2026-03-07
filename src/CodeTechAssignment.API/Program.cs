@@ -1,15 +1,3 @@
-using CodeTechAssignment.API.Middleware;
-using CodeTechAssignment.API.Validators;
-using CodeTechAssignment.Application.Interfaces;
-using CodeTechAssignment.Infrastructure.Data;
-using CodeTechAssignment.Infrastructure.Repositories;
-using CodeTechAssignment.Application.Services;
-using FluentValidation;
-using FluentValidation.AspNetCore;
-using Microsoft.EntityFrameworkCore;
-
-using Serilog;
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Configure Serilog
