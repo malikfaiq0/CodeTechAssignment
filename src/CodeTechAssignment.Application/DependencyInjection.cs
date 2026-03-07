@@ -2,17 +2,10 @@
 
 public static class DependencyInjection
 {
-    public static IServiceCollection AddApplicationServices(this IServiceCollection services)
+    public static IServiceCollection AddApplicationContracts(this IServiceCollection services)
     {
-        // Application Services
-        services.AddScoped<IUserService, UserService>();
-        services.AddScoped<IOtpService, MockOtpService>();
-
-        // Validation
-        services.AddFluentValidationAutoValidation();
-        services.AddFluentValidationClientsideAdapters();
-        services.AddValidatorsFromAssemblyContaining<RegisterUserDtoValidator>();
-
+        // Application layer now only holds DTOs and Interfaces.
+        // Implementations moved to Infrastructure/API.
         return services;
     }
 }

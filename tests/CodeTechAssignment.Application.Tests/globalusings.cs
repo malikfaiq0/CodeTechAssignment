@@ -1,9 +1,9 @@
-﻿global using System.Net.Http.Json;
-global using System.Net;
-global using FluentAssertions;
+﻿global using FluentAssertions;
 global using Moq;
 global using Xunit;
+
+global using CodeTechAssignment.Application;
 global using CodeTechAssignment.DTO;
-global using CodeTechAssignment.Repositories;
-global using CodeTechAssignment.Services;
 global using CodeTechAssignment.Entities;
+global using CodeTechAssignment.Infrastructure;
+global using CodeTechAssignment.Repositories;

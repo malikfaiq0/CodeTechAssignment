@@ -1,4 +1,4 @@
-namespace CodeTechAssignment.Validators;
+namespace CodeTechAssignment.API.Validators;
 
 public class RegisterUserDtoValidator : AbstractValidator<RegisterUserDto>
 {

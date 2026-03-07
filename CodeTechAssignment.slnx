@@ -3,6 +3,7 @@
     <Project Path="src\CodeTechAssignment.API\CodeTechAssignment.API.csproj" />
     <Project Path="src\CodeTechAssignment.Domain\CodeTechAssignment.Domain.csproj" />
     <Project Path="src\CodeTechAssignment.Application\CodeTechAssignment.Application.csproj" />
+    <Project Path="src\CodeTechAssignment.Infrastructure\CodeTechAssignment.Infrastructure.csproj" />
     <Project Path="src\CodeTechAssignment.Persistence.SqlServer\CodeTechAssignment.Persistence.SqlServer.csproj" />
     <Project Path="src\CodeTechAssignment.Persistence.Postgres\CodeTechAssignment.Persistence.Postgres.csproj" />
     <Project Path="src\CodeTechAssignment.Persistence.Oracle\CodeTechAssignment.Persistence.Oracle.csproj" />

@@ -1,11 +1,19 @@
+
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Configure Serilog
 builder.Host.UseSerilog((context, loggerConfiguration) => loggerConfiguration
     .ReadFrom.Configuration(context.Configuration));
 
-// The API delegates DI registration to the respective layers
-builder.Services.AddApplicationServices();
+// Composition Root - Wiring the Layers
+builder.Services.AddApplicationContracts();
+builder.Services.AddInfrastructureLogic();
+
+// 1. API-Level Validation (Presentation Concern)
+builder.Services.AddFluentValidationAutoValidation();
+builder.Services.AddFluentValidationClientsideAdapters();
+builder.Services.AddValidatorsFromAssemblyContaining<Program>();
 
 // Database Provider Switchboard
 var dbProvider = builder.Configuration.GetValue<string>("DatabaseSettings:Provider");

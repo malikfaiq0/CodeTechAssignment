@@ -1,4 +1,4 @@
-namespace CodeTechAssignment.Services;
+namespace CodeTechAssignment.Infrastructure;
 
 public class MockOtpService : IOtpService
 {
