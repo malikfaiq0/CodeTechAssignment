@@ -8,7 +8,13 @@ using FluentValidation;
 using FluentValidation.AspNetCore;
 using Microsoft.EntityFrameworkCore;
 
+using Serilog;
+
 var builder = WebApplication.CreateBuilder(args);
+
+// Configure Serilog
+builder.Host.UseSerilog((context, loggerConfiguration) => loggerConfiguration
+    .ReadFrom.Configuration(context.Configuration));
 
 // 1. Add DB Context
 builder.Services.AddDbContext<AppDbContext>(options =>
