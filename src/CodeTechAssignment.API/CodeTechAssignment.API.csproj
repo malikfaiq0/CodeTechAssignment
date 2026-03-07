@@ -23,6 +23,7 @@
     <ProjectReference Include="..\CodeTechAssignment.Application\CodeTechAssignment.Application.csproj" />
     <ProjectReference Include="..\CodeTechAssignment.Persistence.Postgres\CodeTechAssignment.Persistence.Postgres.csproj" />
     <ProjectReference Include="..\CodeTechAssignment.Persistence.SqlServer\CodeTechAssignment.Persistence.SqlServer.csproj" />
+    <ProjectReference Include="..\CodeTechAssignment.Persistence.Oracle\CodeTechAssignment.Persistence.Oracle.csproj" />
   </ItemGroup>
 
 </Project>

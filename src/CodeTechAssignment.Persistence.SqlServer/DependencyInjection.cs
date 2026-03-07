@@ -1,4 +1,4 @@
-namespace CodeTechAssignment.Persistence;
+namespace CodeTechAssignment.Persistence.SqlServer;
 
 public static class DependencyInjection
 {

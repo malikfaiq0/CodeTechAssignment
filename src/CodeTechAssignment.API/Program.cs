@@ -17,6 +17,10 @@ else if (dbProvider == "Postgres")
 {
     builder.Services.AddPostgresPersistence(builder.Configuration);
 }
+else if (dbProvider == "Oracle")
+{
+    builder.Services.AddOraclePersistence(builder.Configuration);
+}
 else
 {
     throw new InvalidOperationException($"Unsupported database provider: {dbProvider}");

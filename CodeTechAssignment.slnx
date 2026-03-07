@@ -1,14 +1,11 @@
 <Solution>
   <Folder Name="/src/">
     <Project Path="src\CodeTechAssignment.API\CodeTechAssignment.API.csproj" />
-  </Folder>
-  <Folder Name="/src/Core/">
-    <Project Path="src\CodeTechAssignment.Application\CodeTechAssignment.Application.csproj" />
     <Project Path="src\CodeTechAssignment.Domain\CodeTechAssignment.Domain.csproj" />
-  </Folder>
-  <Folder Name="/src/Persistence/">
-    <Project Path="src\CodeTechAssignment.Persistence.Postgres\CodeTechAssignment.Persistence.Postgres.csproj" />
+    <Project Path="src\CodeTechAssignment.Application\CodeTechAssignment.Application.csproj" />
     <Project Path="src\CodeTechAssignment.Persistence.SqlServer\CodeTechAssignment.Persistence.SqlServer.csproj" />
+    <Project Path="src\CodeTechAssignment.Persistence.Postgres\CodeTechAssignment.Persistence.Postgres.csproj" />
+    <Project Path="src\CodeTechAssignment.Persistence.Oracle\CodeTechAssignment.Persistence.Oracle.csproj" />
   </Folder>
   <Folder Name="/tests/">
     <Project Path="tests\CodeTechAssignment.API.Tests\CodeTechAssignment.API.Tests.csproj" />
