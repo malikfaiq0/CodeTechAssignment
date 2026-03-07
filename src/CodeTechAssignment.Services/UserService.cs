@@ -1,8 +1,8 @@
-using CodeBAssignment.Core.DTOs;
-using CodeBAssignment.Core.Entities;
-using CodeBAssignment.Core.Interfaces;
+using CodeTechAssignment.Core.DTOs;
+using CodeTechAssignment.Core.Entities;
+using CodeTechAssignment.Core.Interfaces;
 
-namespace CodeBAssignment.Services
+namespace CodeTechAssignment.Services
 {
     public class UserService : IUserService
     {

@@ -1,8 +1,11 @@
 using CodeBAssignment.API.Middleware;
+using CodeBAssignment.API.Validators;
 using CodeBAssignment.Core.Interfaces;
 using CodeBAssignment.Infrastructure.Data;
 using CodeBAssignment.Infrastructure.Repositories;
 using CodeBAssignment.Services;
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,8 +17,14 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 
 // 2. Dependency Injection 
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IOtpRepository, OtpRepository>(); // Fixed DIP Violation
 builder.Services.AddScoped<IOtpService, MockOtpService>();
 builder.Services.AddScoped<IUserService, UserService>();
+
+// Add Fluent Validation
+builder.Services.AddFluentValidationAutoValidation();
+builder.Services.AddFluentValidationClientsideAdapters();
+builder.Services.AddValidatorsFromAssemblyContaining<RegisterUserDtoValidator>();
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();

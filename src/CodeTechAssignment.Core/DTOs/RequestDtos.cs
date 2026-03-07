@@ -1,4 +1,4 @@
-namespace CodeBAssignment.Core.DTOs
+namespace CodeTechAssignment.Core.DTOs
 {
     public class RegisterUserDto
     {
