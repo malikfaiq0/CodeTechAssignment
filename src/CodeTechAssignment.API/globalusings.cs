@@ -1,13 +1,11 @@
 ﻿global using System.Net;
 global using System.Text.Json;
 global using Microsoft.AspNetCore.Mvc;
-global using FluentValidation;
-global using FluentValidation.AspNetCore;
-global using Microsoft.EntityFrameworkCore;
 global using Serilog;
+
+// Global usings for the API project to reduce boilerplate in individual files
+global using CodeTechAssignment.Application;
 global using CodeTechAssignment.DTO;
-global using CodeTechAssignment.Services;
+global using CodeTechAssignment.Infrastructure;
 global using CodeTechAssignment.Middleware;
-global using CodeTechAssignment.Validators;
-global using CodeTechAssignment.Data;
-global using CodeTechAssignment.Repositories;
+global using CodeTechAssignment.Services;

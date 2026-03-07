@@ -1,13 +1,18 @@
 <Solution>
-  <Folder Name="/src/">
-    <Project Path="src\CodeTechAssignment.API\CodeTechAssignment.API.csproj" />
-    <Project Path="src\CodeTechAssignment.Domain\CodeTechAssignment.Domain.csproj" />
+  <Folder Name="/src/" />
+  <Folder Name="/src/Core/">
     <Project Path="src\CodeTechAssignment.Application\CodeTechAssignment.Application.csproj" />
-    <Project Path="src\CodeTechAssignment.Infrastructure\CodeTechAssignment.Infrastructure.csproj" />
+    <Project Path="src\CodeTechAssignment.Domain\CodeTechAssignment.Domain.csproj" />
+  </Folder>
+  <Folder Name="/src/Infrastructure/">
+    <Project Path="src/CodeTechAssignment.Infrastructure/CodeTechAssignment.Infrastructure.SqlServer.csproj" />
+  </Folder>
+  <Folder Name="/src/Presentation/">
+    <Project Path="src\CodeTechAssignment.API\CodeTechAssignment.API.csproj" />
   </Folder>
   <Folder Name="/tests/">
     <Project Path="tests\CodeTechAssignment.API.Tests\CodeTechAssignment.API.Tests.csproj" />
-    <Project Path="tests\CodeTechAssignment.Core.Tests\CodeTechAssignment.Core.Tests.csproj" />
     <Project Path="tests\CodeTechAssignment.Application.Tests\CodeTechAssignment.Application.Tests.csproj" />
+    <Project Path="tests\CodeTechAssignment.Core.Tests\CodeTechAssignment.Core.Tests.csproj" />
   </Folder>
 </Solution>
